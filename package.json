@@ -4,7 +4,13 @@
     "lodash": "^4.17.21",
     "minimatch": "^9.0.3"
   },
-  "scripts": {},
+  "scripts": {
+      "build": "npx parcel build src/index.html --public-url https://github.com/moham-jem/ci-cd-coursera-capstone.git",
+      "lint": "eslint .",
+      "test": "npx jest",
+      "deploy": "npx run build && gh-pages -d dist",
+      "ci": "npx run lint && npx run test && npx run deploy"
+  },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.9.3",
     "eslint": "^8.49.0",
